@@ -78,6 +78,37 @@
                 </li>
             </ul>
         </section>
+        <section id="formularz">
+            <h2>Napisz do mnie</h2>
+            <form id="moj-formularz">
+                <p>
+                    <label for="imie">Imię:</label><br>
+                    <input type="text" id="imie">
+                    <br><span id="blad-imie" style="color: red;"></span>
+                </p>
+                
+                <p>
+                    <label for="nazwisko">Nazwisko:</label><br>
+                    <input type="text" id="nazwisko">
+                    <br><span id="blad-nazwisko" style="color: red;"></span>
+                </p>
+                
+                <p>
+                    <label for="email">E-mail:</label><br>
+                    <input type="text" id="email">
+                    <br><span id="blad-email" style="color: red;"></span>
+                </p>
+                
+                <p>
+                    <label for="wiadomosc">Wiadomość:</label><br>
+                    <textarea id="wiadomosc" rows="4" style="width: 100%; max-width: 300px;"></textarea>
+                    <br><span id="blad-wiadomosc" style="color: red;"></span>
+                </p>
+                
+                <button type="submit">Wyślij wiadomość</button>
+                <p id="sukces" style="color: green; display: none;">Formularz jest poprawny!</p>
+            </form>
+        </section>
     </main>
 
     <footer>

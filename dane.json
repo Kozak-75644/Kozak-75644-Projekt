@@ -1,0 +1,13 @@
+{
+  "umiejetnosci": [
+    "HTML5",
+    "CSS3",
+    "Git & GitHub",
+    "Język angielski (B2)",
+    "Obsługa MS Office"
+  ],
+  "projekty": [
+    "<strong>Moja Strona Wizytówka (HTML/CSS)</strong> — Stworzenie w pełni semantycznej strony internetowej typu CV z wykorzystaniem nowoczesnych tagów HTML5.",
+    "<strong>Kalkulator Wydatków (JavaScript)</strong> — Prosta aplikacja webowa pozwalająca użytkownikowi dodawać wydatki i sumować koszty w czasie rzeczywistym."
+  ]
+}

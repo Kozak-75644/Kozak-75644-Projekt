@@ -80,3 +80,26 @@ if (formularz) {
         }
     });
 }
+fetch('dane.json')
+    .then(function(odpowiedz) {
+        return odpowiedz.json();
+    })
+    .then(function(dane) {
+        let ulUmiejetnosci = document.getElementById('lista-umiejetnosci');
+        if (ulUmiejetnosci) {
+            for (let i = 0; i < dane.umiejetnosci.length; i++) {
+                let li = document.createElement('li');
+                li.textContent = dane.umiejetnosci[i];
+                ulUmiejetnosci.appendChild(li);
+            }
+        }
+
+        let ulProjekty = document.getElementById('lista-projekty');
+        if (ulProjekty) {
+            for (let i = 0; i < dane.projekty.length; i++) {
+                let li = document.createElement('li');
+                li.innerHTML = dane.projekty[i]; 
+                ulProjekty.appendChild(li);
+            }
+        }
+    });

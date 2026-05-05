@@ -103,3 +103,56 @@ fetch('dane.json')
             }
         }
     });
+
+const inputNotatka = document.getElementById('nowa-notatka');
+const btnDodaj = document.getElementById('btn-dodaj');
+const listaNotatek = document.getElementById('lista-notatek');
+
+if (inputNotatka && btnDodaj && listaNotatek) {
+    function odswiezListe() {
+        listaNotatek.innerHTML = "";
+        let dane = localStorage.getItem('moje_notatki');
+        let tablica = [];
+        
+        if (dane) {
+            tablica = JSON.parse(dane);
+        }
+
+        for (let i = 0; i < tablica.length; i++) {
+            let li = document.createElement('li');
+            li.textContent = tablica[i] + " ";
+
+            let btnUsun = document.createElement('button');
+            btnUsun.textContent = "Usuń";
+            
+            btnUsun.addEventListener('click', function() {
+                tablica.splice(i, 1);
+                localStorage.setItem('moje_notatki', JSON.stringify(tablica));
+                odswiezListe();
+            });
+
+            li.appendChild(btnUsun);
+            listaNotatek.appendChild(li);
+        }
+    }
+
+    btnDodaj.addEventListener('click', function() {
+        let tekst = inputNotatka.value;
+        if (tekst !== "") {
+            let dane = localStorage.getItem('moje_notatki');
+            let tablica = [];
+            
+            if (dane) {
+                tablica = JSON.parse(dane);
+            }
+            
+            tablica.push(tekst);
+            localStorage.setItem('moje_notatki', JSON.stringify(tablica));
+            
+            inputNotatka.value = "";
+            odswiezListe();
+        }
+    });
+
+    odswiezListe();
+}

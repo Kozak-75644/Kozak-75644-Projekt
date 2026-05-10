@@ -75,8 +75,27 @@ if (formularz) {
             ok = false;
         }
 
-        if (ok === true) {
-            sukces.style.display = "block";
+       if (ok === true) {
+            let daneFormularza = {
+                imie: imie,
+                nazwisko: nazwisko,
+                email: email,
+                wiadomosc: wiadomosc
+            };
+
+            fetch("https://formspree.io/f/mjglpnpa", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(daneFormularza)
+            })
+            .then(function(odpowiedz) {
+                if (odpowiedz.ok) {
+                    sukces.style.display = "block";
+                    sukces.textContent = "Dane zostały pomyślnie wysłane na serwer!";
+                }
+            });
         }
     });
 }
